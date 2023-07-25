@@ -6,7 +6,6 @@ param appServiceAppName string = 'toylaunch${uniqueString(resourceGroup().id)}'
 
 @description('The name of the storage account to deploy. This name must be globally unique.')
 param storageAccountName string = 'toylaunch${uniqueString(resourceGroup().id)}'
-
 var processOrderQueueName = 'processorder'
 
 @description('The type of the environment. This must be nonprod or prod.')
@@ -27,9 +26,8 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   kind: 'StorageV2'
   properties: {
     accessTier: 'Hot'
-    
   }
-  resource queueServices 'queueServices' existing = {
+    resource queueServices 'queueServices' existing = {
     name: 'default'
 
     resource processOrderQueue 'queues' = {
