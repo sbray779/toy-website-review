@@ -14,7 +14,7 @@ var processOrderQueueName = 'processorder'
   'nonprod'
   'prod'
 ])
-param environmentType string
+param environmentType string = 'prod'
 
 var storageAccountSkuName = (environmentType == 'prod') ? 'Standard_GRS' : 'Standard_LRS'
 
